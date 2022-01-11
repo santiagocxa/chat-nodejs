@@ -3,7 +3,7 @@ const store = require('./store');
 function addUser(name) {
   return new Promise((resolve, reject) => {
     if (!name) {
-      reject('Nombre Invalido');
+      reject('Invalid data');
     }
     const user = {
       name,

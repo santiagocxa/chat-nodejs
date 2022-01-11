@@ -4,8 +4,7 @@ const { socket } = require('../../socket');
 function addMessage(chat, user, message) {
   return new Promise((resolve, reject) => {
     if (!chat || !user || !message) {
-      console.error('[messageController] No hay usuario o mensaje');
-      reject('Los campos no pueden estar vacios');
+      reject('Empty data');
       return false;
     }
     const fullMessage = {
@@ -29,7 +28,7 @@ function getMessages(filterChat) {
 function updateMessage(id, message) {
   return new Promise(async (resolve, reject) => {
     if (!id || !message) {
-      reject('Invalid data');
+      reject('Empty data');
       return false;
     }
 
@@ -49,7 +48,7 @@ function deleteMessage(id) {
       .deleteMessage(id)
       .then((data) => {
         if (data.deletedCount === 1) {
-          resolve('Mensaje Eliminado');
+          resolve('Deleted Message');
         } else {
           resolve(data);
         }

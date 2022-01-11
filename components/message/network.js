@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
       response.success(req, res, messageList, 200);
     })
     .catch((err) => {
-      response.error(req, res, 'error', 500, err);
+      response.error(req, res, 'Internal error', 500, err);
     });
 });
 
@@ -24,7 +24,7 @@ router.post('/', function (req, res) {
       response.success(req, res, message, 201);
     })
     .catch((e) => {
-      response.error(req, res, 'Informacion Invalidad', 400, e);
+      response.error(req, res, 'Internal error', 400, e);
     });
 });
 
@@ -35,7 +35,7 @@ router.patch('/:id', function (req, res) {
       response.success(req, res, data, 200);
     })
     .catch((err) => {
-      response.error(req, res, 'Error interno', 500, err);
+      response.error(req, res, 'Internal error', 500, err);
     });
 });
 
@@ -43,10 +43,10 @@ router.delete('/:id', function (req, res) {
   controller
     .deleteMessage(req.params.id)
     .then((data) => {
-      response.success(req, res, data || 'Mensaje Eliminado', 200);
+      response.success(req, res, data || 'Deleted Message', 201);
     })
     .catch((err) => {
-      response.error(req, res, 'Error interno', 500, err);
+      response.error(req, res, 'Internal error', 500, err);
     });
 });
 

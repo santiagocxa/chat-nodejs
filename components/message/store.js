@@ -36,7 +36,7 @@ async function deleteMessage(id) {
   let message = await foundMessage;
 
   if (!message) {
-    return 'No existe el menseaje o ya fue eliminado';
+    return 'The message does not exist or has already been deleted';
   }
   return Model.deleteOne({
     _id: id,

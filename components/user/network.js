@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
       response.success(req, res, data, 200);
     })
     .catch((err) => {
-      response.error(req, res, 'error', 500, err);
+      response.error(req, res, 'Internal Error', 500, err);
     });
 });
 
