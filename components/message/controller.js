@@ -14,7 +14,15 @@ function addMessage(chat, user, message) {
       date: new Date(),
     };
     store.add(fullMessage);
-    socket.io.emit('message', fullMessage);
+
+    // socket.io.on('connection', (socket) => {
+    //   console.log('OnSocket');
+    //   socket.on('run', (data) => {
+    //     console.log('messageBackEnd ', data);
+    //     socket.emit('message', fullMessage);
+    //   });
+    // });
+
     resolve(fullMessage);
   });
 }

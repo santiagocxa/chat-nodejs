@@ -1,11 +1,13 @@
 const socketIO = require('socket.io');
 const socket = {};
 
-function connect(server) {
-  socket.io = socketIO(server);
+function socketConnect(server) {
+  socket.io = socketIO(server, {
+    transports: ['websocket', 'polling'],
+  });
 }
 
 module.exports = {
-  connect,
+  socketConnect,
   socket,
 };
